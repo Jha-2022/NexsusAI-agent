@@ -1,0 +1,18 @@
+How to Run Locally
+You can launch both the frontend and backend directly from your terminal:
+
+1. Run the Backend API:
+
+bash
+cd backend
+npm install
+node index.js
+2. Run the Frontend App:
+
+bash
+cd frontend
+npm install
+npm run dev
+Both environments have been successfully tested for compilation and runtime errors. Let me know if you would like me to expand the reasoning loop implementation inside backend/index.js or start incorporating real MCP connection handlers!
+
+agent

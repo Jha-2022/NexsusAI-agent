@@ -1,0 +1,24 @@
+orchestrator:
+  name: MainOrchestrator
+  model: gemini-3-pro
+  role: "Coordinates sub-agents and manages MCP integrations"
+
+sub_agents:
+  - name: SystemsPlanner
+    model: gemini-3.5-flash
+    role: "Validate third-party documentation, research partner MCP schemas, and draft strict architectural specifications"
+    tools: ["browser"]
+  
+  - name: AgentDeveloper
+    model: gemini-3.5-flash
+    role: "Scaffold backend logic, execute local test flows, and manage configuration states"
+    tools: ["code_editor", "terminal"]
+
+mcp_servers:
+  gitlab:
+    transport: "stdio"
+    command: "npx"
+    args: ["-y", "@modelcontextprotocol/server-gitlab"]
+    env:
+      GITLAB_PERSONAL_ACCESS_TOKEN: ${GITLAB_PAT}
+      GITLAB_API_URL: "https://gitlab.com/api/v4"
